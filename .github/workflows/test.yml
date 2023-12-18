@@ -1,0 +1,19 @@
+name: Postman Tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Postman tests
+        uses: postmanlabs/newman@v7
+        with:
+          collection: prueba.json
